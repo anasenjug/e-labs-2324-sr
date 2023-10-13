@@ -1,7 +1,7 @@
 # Software Engineering Labs 2022/2023
 ## Stručni studij računarstvo
 
-# Author: WRITE YOUR FULL NAME HERE
+# Author: Ana Šenjug
 
 # Setup
 
