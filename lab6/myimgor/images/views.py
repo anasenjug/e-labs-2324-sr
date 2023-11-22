@@ -1,13 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Image
 
 # Create your views here.
 def homepage(request):
-    context = {}
+    count = Image.objects.count()
+    context = {
+        "count": count,
+    }
     return render(request,'images/homepage.html', context)
 
 def image_list(request):
-    context = {}
+    images = Image.objects.all()
+    context = {
+        "images": images,
+    }
     return render(request, 
                 'images/image_list.html', 
                 context)

@@ -1,7 +1,15 @@
 {% extends 'images/base.html' %}
 
 {% block content %}
-    <p>Ovdje idu sve slike</p>
-
+    <h1>Slike</h1>
+    <div>
+        {% for image in images %}
+            <div>
+                <p>{{ image.title }}</p>
+                <img src="{{ image.url }}" style="width: 150px;">
+                <p>{{ image.desc }}</p>
+            </div>
+        {% endfor %}    
+    </div>
 {% endblock content %}
     
