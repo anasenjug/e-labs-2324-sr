@@ -3,4 +3,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 def homepage(request):
-    return HttpResponse("Ovo radi")
+    context = {}
+    return render(request,'images/homepage.html', context)
