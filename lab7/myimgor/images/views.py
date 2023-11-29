@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from .models import Image
+from django.utils import timezone
 
 # Create your views here.
 def homepage(request):
@@ -28,4 +29,24 @@ def image_detail(request, image_id):
                   'images/image_detail.html',
                   context
                 )
+
+def create_image(request: HttpRequest):
+    if request.method == "POST":
+        title = request.POST.get('title', "")
+        url = request.POST.get("url", "")
+        pub_date = request.POST.get("pub_date", 
+                           timezone.now())
+        desc = request.POST.get("desc", "")
+        image = Image(title=title,
+                      desc=desc,
+                      pub_date=pub_date,
+                      url=url)
+        image.save()
+        return HttpResponseRedirect(f'/images/{image.id}')
+        
+
+    context = {}
+    return render(request,
+                 "images/create_image.html",
+                 context)
                 
