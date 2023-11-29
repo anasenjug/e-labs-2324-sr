@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from .models import Image
 from django.utils import timezone
+from django.urls import reverse
 
 # Create your views here.
 def homepage(request):
@@ -42,7 +43,9 @@ def create_image(request: HttpRequest):
                       pub_date=pub_date,
                       url=url)
         image.save()
-        return HttpResponseRedirect(f'/images/{image.id}')
+        return HttpResponseRedirect(
+            reverse('images:detail', args=(image.id,))
+        )
         
 
     context = {}
