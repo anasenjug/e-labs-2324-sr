@@ -7,5 +7,8 @@ class Image(models.Model):
     url = models.CharField(max_length=512)
     created_at = models.DateTimeField()
     
+    def __str__(self):
+        return f"{self.id}: {self.title}"
+
 
 
