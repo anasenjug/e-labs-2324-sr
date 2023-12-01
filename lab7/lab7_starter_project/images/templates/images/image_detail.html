@@ -1,0 +1,10 @@
+{% extends 'images/base.html' %}
+
+{% block content %}
+<div>
+    <h2>{{ image.title }}</h2>
+    <h3>{{ image.desc }}</h3>
+    <p>Objavljeno: {{ image.pub_date }}</p>
+    <img src="{{ image.url }}" style="width: 100%">
+</div>
+{% endblock content %}
