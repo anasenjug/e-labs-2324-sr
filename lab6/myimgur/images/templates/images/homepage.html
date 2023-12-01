@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
+{% extends 'images/base.html' %}
+
+{% block title %}Homepage{% endblock title %}
+    
+{% block content %}
     <h1>Dobrodošli na moj imgur</h1>
     <h2>Imamo puno slika</h2>
-</body>
-</html>
+    <h1><a href="/images">Vidi sve slike</a></h1>
+{% endblock content %}
