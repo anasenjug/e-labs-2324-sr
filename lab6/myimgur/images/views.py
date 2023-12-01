@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Image
 
 # Create your views here.
@@ -17,3 +17,10 @@ def image_list(request):
         "images":images,
     }
     return render(request,'images/image_list.html',context)
+
+def image_detail(request,image_id):
+    image = get_object_or_404(Image,pk=image_id)
+    context={
+        "image":image,
+    }
+    return render(request, 'images/image_detail.html',context)

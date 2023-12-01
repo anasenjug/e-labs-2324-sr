@@ -6,7 +6,7 @@
     <h1>Ovo je popis svih slika</h1>
     {% for image in images %}
         <div>
-            <h3>{{ image.title }}</h3>
+            <h3><a href="/images/{{ image.id }}/">{{ image.title }}</a></h3>
             <img src="{{ image.url }}" style="width:200px;" alt="">
             <p>
                 <strong>{{ image.created_at }}</strong>

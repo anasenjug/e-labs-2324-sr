@@ -1,0 +1,8 @@
+{% extends 'images/base.html' %}
+{%block title %}{{image.title}}{% endblock title %}
+{% block content %}
+    <h1>{{ image.title }}</h1>
+    <h2>{{ image.created_at }}</h2>
+    <p>{{ image.desc }}</p>
+    <img src="{{ image.url }}" alt="" style="width:600px;">
+{% endblock content %}
