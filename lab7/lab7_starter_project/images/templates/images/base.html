@@ -8,13 +8,10 @@
 <body>
     <div>
         <a href="/">Home</a>
-        <a href="{% url 'images:list' %}">Slike</a>
-        <a href="{% url 'images:create' %}">Dodaj sliku</a>
+        <a href="/images/">Sve slike</a>
     </div>
-    <h1>Myimgur</h1>
-
+    <h1>My images</h1>
     {% block content %}
-    <p>Ovo je defaultni text</p>
     {% endblock content %}
 </body>
 </html>
