@@ -10,6 +10,16 @@
         <a href="/">Home</a>
         <a href="{% url 'images:list' %}">Slike</a>
         <a href="{% url 'images:create' %}">Dodaj sliku</a>
+        {% if request.user.is_authenticated %}
+        {{ request.user.username }} 
+        <a href="{% url 'logout' %}">Odjava</a>
+        {% else %}
+        <a href="#">Prijavi se</a>
+        {% endif %}
+
+        {% if request.user.is_superuser %}
+        <a href="/admin">Admin dashboard</a>
+        {% endif %}
     </div>
     <h1>Myimgur</h1>
 
