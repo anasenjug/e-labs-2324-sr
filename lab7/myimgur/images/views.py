@@ -20,8 +20,11 @@ def image_list(request):
 
 def image_detail(request, image_id):
     image = get_object_or_404(Image, pk=image_id)
+    comments = image.comment_set.all()
+    #comments=Comment.objects.filter(image=image)
     context = {
         "image": image,
+        "comments":comments,
     }
     return render(request, 'images/image_detail.html', context)
 
