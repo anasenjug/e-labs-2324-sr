@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>Objavi svoju sliku</h1>
-<form  method="POST" action="/images/new/">
+<form  method="POST" action="{% url 'images:create' %}">
     {% csrf_token %}
     <label for="">Title</label>
     <input type="text" name="title" id=""><br>

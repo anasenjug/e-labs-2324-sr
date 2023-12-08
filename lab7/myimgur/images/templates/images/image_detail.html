@@ -8,7 +8,7 @@
     <img src="{{ image.url }}" style="width: 500px">
 </div>
 <div>
-    <form action="" method="post">
+    <form action="{% url 'images:comment_create' image.id %}" method="post">
         {% csrf_token %}
         <label for="">Author</label>
         <input type="text" name="author" id=""><br>

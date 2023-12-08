@@ -44,3 +44,15 @@ def image_create(request):
         return HttpResponseRedirect(f"/images/{image.id}/")
     context={}
     return render(request,'images/image_create.html',context)
+
+def comment_create(request,image_id):
+    if request.method == "POST":
+        image = get_object_or_404(Image, pk=image_id)
+        author = request.POST['author']
+        text = request.POST['text']
+        image.comment_set.create(
+            author = author,
+            text = text,
+        )
+
+    return HttpResponseRedirect(f"/images/{image_id}")

@@ -4,7 +4,7 @@
 <div>
     {% for image in images %}
         <p>
-            <a href="/images/{{ image.id }}">
+            <a href="{% url 'images:detail' image.id %}">
                 {{ image.title }}
             </a>
         </p>
