@@ -1,0 +1,20 @@
+{% extends 'images/base.html' %}
+
+{% block content %}
+
+<h1>Objavi svoju sliku</h1>
+<form  method="POST" action="/images/new/">
+    {% csrf_token %}
+    <label for="">Title</label>
+    <input type="text" name="title" id=""><br>
+    <label for="">Description</label>
+    <input type="text" name="desc" id=""><br>
+    <label for="">Pub date</label>
+    <input type="date" name="pub_date" id=""><br>
+    <label for="">URL</label>
+    <input type="text" name="url" id=""><br>
+    <input type="submit" value="Objavi sliku">
+
+</form>
+
+{% endblock content %}

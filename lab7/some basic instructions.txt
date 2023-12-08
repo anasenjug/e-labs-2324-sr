@@ -1,0 +1,11 @@
+VIRTUAL ENVIRONMENT
+----------------------
+python -m venv env
+.\env\Scripts\activate
+
+MIGRATIONS AFTER MAKING NEW MODEL
+------------------------------------
+python manage.py makemigrations
+python manage.py migrate
+
+
