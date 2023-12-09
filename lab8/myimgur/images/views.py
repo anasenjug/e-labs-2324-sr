@@ -21,7 +21,8 @@ def detail(request, image_id):
     comments = image.comment_set.all()
     context = {
         'image': image,
-        'comments' : comments
+        'comments' : comments,
+        'liked' : image.liked_by(request.user),
     }
     return render(request, 'images/detail.html', context)
 
@@ -51,3 +52,10 @@ def post_comment(request, image_id):
 
     return HttpResponseRedirect(reverse("app:detail", args=[image_id]))
 
+def like(request,image_id):
+    image = get_object_or_404(Image,pk=image_id)
+    if request.user.is_authenticated and request.method=="POST":
+        image.toggle_like(request.user)
+        
+        
+    return HttpResponseRedirect(reverse("app:detail",args=(image_id,)))
