@@ -24,12 +24,19 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'app:create_image' %}">Add new image</a>
             </li>
+            <li>
+              {% if request.user.is_superuser %}
+              <a class="nav-link" href="/admin">
+                Admin dashboard
+              </a>
+              {% endif %} 
+            </li>
           </ul>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               {% if request.user.is_authenticated %}
               User: {{ request.user.username }} 
-              {{ user.email }}
+              [{{ user.email }}]
               <a class="nav-link" href="{% url 'logout' %}">
                Odjavi se
               </a>
