@@ -1,0 +1,19 @@
+{% extends 'images/base.html' %}
+{% block content %}
+  <div>
+    <h1>Dobrodošli na naš imgur</h1>
+    <h2>Uživajte u slikama</h2>  
+  </div>
+  {% for image in image_list %}
+      <div>
+          <h3>Naziv: 
+              <a href="{% url 'app:detail' image.id %}">
+                  {{ image.title }}
+              </a>
+          </h3>
+          <img src="{{ image.url }}" style="width:300px;">
+          <p>Objavljeno: {{ image.pub_date }}</p>
+        <hr>
+      </div>
+  {% endfor %}
+{% endblock content %}

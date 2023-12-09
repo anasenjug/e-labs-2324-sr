@@ -1,0 +1,32 @@
+{% extends 'images/base.html' %}
+
+{% block content %}
+    <h1>{{ image.title }}</h1>
+    <div>
+        <div>
+            <img src="{{ image.url }}" style="width: 150px;">
+            <p>{{ image.desc }}</p>
+        </div>
+    </div>
+    <div>
+        <h1>Dodaj komentar</h1>
+        <form action="{% url 'images:create_comment' image.id %}" method="POST">
+            {% csrf_token %}
+            <label for="">Autor</label> <br>
+            <input type="text" name="author"> <br>
+            <label for="">Comment</label><br>
+            <textarea name="content" id="" cols="30" rows="4"></textarea><br>
+            <input type="submit" value="Pošalji komentar">
+        </form>
+        <h1>Komentari</h1>
+        {% for comment in comments %}
+        <div>
+            <p><strong>{{ comment.author }}</strong></p>
+            <p>{{ comment.content }}</p>
+            <p><small>{{ comment.created_at }}</small></p>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+{% endblock content %}
+    
